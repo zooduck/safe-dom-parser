@@ -2,7 +2,7 @@
   "name": "@zooduck/safe-dom-parser",
   "version": "0.0.1",
   "description": "Feature-rich implementation of DOMParser with XSS protection and sanitization built-in",
-  "main": "dist/index.module.js",
+  "main": "modules/@zooduck/safe-dom-parser/index.module.js",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/zooduck/safe-dom-parser.git"
