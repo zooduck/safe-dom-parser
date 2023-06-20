@@ -37,24 +37,20 @@ Copy the `modules` folder to your project.
 Import using a module file:
 
 ```javascript
-import 'path/to/modules/@zooduck/safe-dom-parser/index.module.js'
-```
-
-Import using a script tag:
-
-```html
-<script type="module" src="path/to/modules/@zooduck/safe-dom-parser/index.module.js"></script>
+import { SafeDOMParser } from 'path/to/modules/@zooduck/safe-dom-parser/index.module.js'
 ```
 
 ## Use
 
 The `SafeDOMParser` class is purpose built to be used with Web Components (Custom Elements) but can be used anywhere.
 
-If you want to use onevent type attributes, you must pass the event listener context to the constructor. (See examples below for more details).
+If you want to use `on:event` type attributes, you must pass the event listener context to the constructor (see examples below for more details).
 
 ## Examples
 
-### 1a. Attach event listeners using onevent attributes (web component)
+### Attach event listeners using `on:event` attributes
+
+In a Web Component:
 
 ```javascript
 class MyCustomElement extends HTMLElement {
@@ -81,7 +77,7 @@ class MyCustomElement extends HTMLElement {
 }
 ```
 
-### 1b. Attach event listeners using onevent attributes (other)
+Anywhere else:
 
 ```javascript
 const eventListeners = {
@@ -95,7 +91,7 @@ const eventListeners = {
 
 const createButton = () => {
   // Don't forget to pass the event listener context to the constructor!
-  return new SafeDOMParser(this).parseFromString`
+  return new SafeDOMParser(eventListeners).parseFromString`
     <button on:click="onClickHandler()">Click me</button>
   `
 }
@@ -103,20 +99,20 @@ const createButton = () => {
 const createButtonWithCustomEventListener = () => {
   // Always use all lowercase alpha characters for custom event types!
   // Don't forget to pass the event listener context to the constructor!
-  return new SafeDOMParser(this).parseFromString`
+  return new SafeDOMParser(eventListeners).parseFromString`
     <custom-button on:clicketyclickclick="onClicketyClickClickHandler()">Click me</custom-button>
   `
 }
 ```
 
-### 2. Set an IDL attribute / DOM property
+### Set an IDL attribute / DOM property
 
 ```javascript
 // Unlike content attributes, the value of a DOM property can be anything (in this case, a boolean).
 const readonlyInput = new SafeDOMParser().parseFromString`<input [readOnly]=${true}>`
 ```
 
-### 3. Create mutiple elements
+### Create mutiple root elements
 
 ```javascript
 const ul = document.querySelector('ul')
