@@ -1,7 +1,8 @@
 import * as fs from 'node:fs/promises';
 import { buildTools } from '@zooduck/build-tools';
 
-await fs.rm('modules/@zooduck/safe-dom-parser', { recursive: true, force: true });
-await fs.mkdir('modules/@zooduck/safe-dom-parser', { recursive: true });
-await fs.copyFile('src/SafeDOMParser.module.js', 'modules/@zooduck/safe-dom-parser/index.module.js');
-await buildTools.removeCommentsFromFile('modules/@zooduck/safe-dom-parser/index.module.js');
+await fs.rm('dist', { recursive: true, force: true });
+await fs.mkdir('dist', { recursive: true });
+await fs.copyFile('src/SafeDOMParser.module.js', 'dist/index.module.js');
+await buildTools.removeCommentsFromFile('dist/index.module.js');
+await buildTools.stampFileWithVersion('dist/index.module.js', 'package.json');

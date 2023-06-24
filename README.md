@@ -1,9 +1,10 @@
 # SafeDOMParser
 
-Feature-rich implementation of `DOMParser` with XSS protection and sanitization built-in.
-Includes support for IDL attributes and onevent attributes (including Custom Events).
+Feature-rich implementation of `DOMParser` with XSS protection and sanitization built-in. Includes support for IDL and onevent attributes (including Custom Events).
 
-## For users with an access token
+## Installation
+
+### For users with an access token
 
 Add a `.npmrc` file to your project, with the following lines:
 
@@ -24,25 +25,25 @@ Install via package.json:
 "@zooduck/safe-dom-parser": "latest"
 ```
 
-## For users without an access token
+### For users without an access token
 
 Clone or [Download](https://github.com/zooduck/safe-dom-parser/archive/refs/heads/master.zip) the repository to your machine.
 
 ## Getting started
 
-Copy the `modules` folder to your project.
+Copy the `safe-dom-parser` folder to your project.
 
 ## Import
 
 Import using a module file:
 
 ```javascript
-import { SafeDOMParser } from 'path/to/modules/@zooduck/safe-dom-parser/index.module.js'
+import { SafeDOMParser } from 'path/to/safe-dom-parser/dist/index.module.js'
 ```
 
 ## Use
 
-The `SafeDOMParser` class is purpose built to be used with Web Components (Custom Elements) but can be used anywhere.
+This module was designed with Web Components (Custom Elements) in mind, but can be used anywhere.
 
 If you want to use `on:event` type attributes, you must pass the event listener context to the constructor (see examples below for more details).
 
