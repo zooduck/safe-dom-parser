@@ -1,6 +1,6 @@
 # SafeDOMParser
 
-Feature-rich implementation of `DOMParser` with XSS protection and sanitization built-in.
+Feature-rich implementation of the [DOMParser](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser) interface with XSS protection and sanitization built-in.
 
 Includes support for IDL attributes / DOM properties and onevent attributes (including Custom Events).
 
